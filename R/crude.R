@@ -7,15 +7,15 @@ library(DescTools)
 base_colours <- hsv(0,0,0:1)
 newcol <- NULL
 colopts <- NULL
-tdif <- 10
+tdif <- 20
 
 vistep <- .05
-vistart <- .5
+vistart <- .6
 
 vi <- vistart
 
 while (vi < 1) {
-n = 10
+n = 30
 a = expand.grid(h=seq(0,1,length.out=n+1)[-1],s=seq(0,1,length.out=n),v=vi) %>%
   mutate(col=hsv(h,s,v))
 
@@ -59,6 +59,7 @@ if (length(colopts)>0) {
     vi <- vi + vistep
   }
   colopts <- NULL
+  print(vi)
 }
 
 colnom <- newcol
